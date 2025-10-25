@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-py"
+  interface       = "asyncio"
+  recursive_type_depth = -1
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique // This is the key link to Clerk
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+
+// ---- Phase 2 models ----
+enum PitchStatus {
+  uploaded
+  processing
+  ready
+  failed
+}
+
+model Pitch {
+  id            String       @id @default(cuid())
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  // who owns it (Clerk user id; we don't require a User row to exist)
+  ownerClerkId  String
+
+  // original upload info
+  originalName  String
+  uploadPath    String
+
+  // selected persona from UI
+  persona       String
+
+  // lifecycle state
+  status        PitchStatus  @default(uploaded)
+  error         String?
+
+  analyses      DeckAnalysis[]
+
+  @@index([ownerClerkId])
+  @@index([status])
+}
+
+model DeckAnalysis {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+
+  pitchId    String
+  pitch      Pitch    @relation(fields: [pitchId], references: [id], onDelete: Cascade)
+
+  // structured AI output
+  resultJson Json
+}

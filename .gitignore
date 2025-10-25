@@ -1,0 +1,67 @@
+# Bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+.env.*        # variants like .env.local, .env.prod
+
+# OS / IDE junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs & reports
+*.log
+logs/
+celerybeat-schedule
+*.pid
+
+# Uploads / generated files
+data/uploads/
+data/tmp/
+tmp/
+*.pdf
+
+# Prisma / DB artifacts
+prisma/.generator/
+prisma/migrations/**/migration_lock.toml
+prisma/dev.db
+prisma/test.db
+prisma/migrations/*_draft/
+# (keep prisma/schema.prisma and migration SQLs)
+
+# SQLite (if used locally)
+*.db
+*.sqlite3
+
+# Coverage / testing
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+pytest.xml
+.tox/
+.pytest_cache/
+
+# IDE local configs
+*.iml
+*.code-workspace

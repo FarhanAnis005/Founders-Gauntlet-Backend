@@ -1,0 +1,194 @@
+{
+  "one_liner": "Blockchain Federation aims to bring blockchain into every sphere of life, starting with real estate to address slow, bureaucratic processes and lack of transparency.",
+  "themes": [
+    "Blockchain in Real Estate",
+    "Decentralization and Transparency",
+    "Efficiency and Cost Reduction",
+    "Digital Property Ownership (NFTs)",
+    "Real Estate Marketplace Development"
+  ],
+  "strengths": [
+    "Addresses a clear problem: slow, bureaucratic, and opaque traditional real estate transactions (page 4).",
+    "Leverages blockchain and NFTs for secure, efficient, and transparent property ownership and transfer (page 5).",
+    "Team possesses a strong understanding of blockchain technology, marketing, and sales (page 3).",
+    "Offers competitive advantages including increased transparency, effective transaction processes, and reduced costs (page 9).",
+    "Targets a large potential market with a Total Available Market (TAM) of 180 Billion (page 12).",
+    "Clear business model with multiple revenue streams: NFT minting fees, hardware wallet, and blockchain maintaining fees (page 13)."
+  ],
+  "risks": [
+    "High blockchain infrastructure costs (page 14).",
+    "Significant legal and regulatory compliance challenges in the real estate and blockchain sectors (page 14).",
+    "Competition from established direct and indirect players in the real estate market (page 11).",
+    "Market adoption risk for blockchain-based real estate transactions among individuals and companies.",
+    "Reliance on future fundraising (pre-seed, seed fundraise) to execute the ambitious roadmap (page 10).",
+    "Unspecified details regarding the 'Hardware Wallet' offering and its market viability (page 13).",
+    "The requested convertible note of 5 lacs (likely INR 500,000) may be insufficient for the extensive roadmap and expenses (page 15)."
+  ],
+  "questions_by_shark": {
+    "kevin": [
+      "What is the specific valuation cap and discount rate for this 5 lac convertible note? (page 15)",
+      "What are your projected NFT minting fees and blockchain maintaining fees per transaction? (page 13)",
+      "Can you break down the unit economics of a single property transaction on your platform?",
+      "What is your customer acquisition cost for both individuals and real estate companies? (page 7)",
+      "What are your projected margins on the hardware wallet sales? (page 13)",
+      "How much capital do you anticipate needing beyond this 5 lac convertible note to reach profitability? (page 15)",
+      "What is the current burn rate for the team and development efforts? (page 2, 10)",
+      "How do you plan to manage the high legal and regulatory compliance costs effectively? (page 14)",
+      "What is the average transaction value you expect to see on your platform, given properties are listed in ETH? (page 6)",
+      "What percentage of the 5 lac ask is allocated to each expense category shown in the pie chart? (page 15)"
+    ],
+    "mark": [
+      "What specific blockchain technology are you building on, and what are its scalability limitations?",
+      "How do you ensure the immutability and security of property ownership records using NFTs? (page 5)",
+      "What is your long-term product roadmap beyond the initial marketplace launch? (page 10)",
+      "How will you protect against potential smart contract vulnerabilities or hacks?",
+      "What is your strategy for data privacy and ownership on the blockchain?",
+      "How will you differentiate your technology from other blockchain real estate solutions that may emerge?",
+      "What is the defensibility of your 'Hardware Wallet' offering in a competitive market? (page 13)",
+      "What is your plan for integrating with existing real estate databases or government registries?",
+      "How will you handle potential forks or upgrades to the underlying blockchain?",
+      "What is your intellectual property strategy for the platform and its components?"
+    ],
+    "lori": [
+      "What is the user experience like for an individual buying or selling property using your platform? (page 6)",
+      "How will you educate the average consumer about using blockchain and NFTs for real estate?",
+      "What is your marketing and branding strategy to appeal to a broad audience? (page 14)",
+      "How will you build trust with consumers who are accustomed to traditional real estate processes?",
+      "What unique features does your website (Milio) offer to attract and retain users? (page 6)",
+      "Have you considered partnerships with existing real estate agencies or brokers to reach consumers?",
+      "What is the emotional appeal of buying a home through a blockchain platform?",
+      "How will you ensure the platform is accessible and easy to use for non-tech-savvy individuals?",
+      "What is your plan for customer support and dispute resolution on a blockchain-based system?",
+      "How will you leverage social media and community building to drive adoption? (page 10)"
+    ],
+    "barbara": [
+      "What is the personal story behind why you chose to tackle the real estate problem with blockchain? (page 4)",
+      "How will you build a strong brand identity for Blockchain Federation and Milio? (page 1, 6)",
+      "What is your most scrappy or resourceful moment in building this business so far?",
+      "How do you plan to engage the community and build a loyal user base? (page 10)",
+      "What sales tactics will you use to convince real estate companies to adopt your platform? (page 7)",
+      "Tell me about a time your team overcame a significant challenge together. (page 2, 3)",
+      "What is your vision for the company's culture as you scale?",
+      "How will you use your communication skills to win over skeptical customers? (page 3)",
+      "What is the biggest lesson you've learned since starting this venture?",
+      "How will you leverage your team's strengths (e.g., risk-taker, calm in stress) to navigate market challenges? (page 2)"
+    ],
+    "robert": [
+      "How do you plan to compete with established direct competitors like Prologis and Westfields Real Estate? (page 11)",
+      "What is your strategy for onboarding large real estate companies onto your platform? (page 7, 10)",
+      "How will your pricing structure (NFT minting fees, blockchain maintaining fees) compare to traditional transaction costs? (page 13, 9)",
+      "What cybersecurity measures are in place to protect sensitive property and financial data on your platform?",
+      "What is your B2B sales pipeline and strategy for engaging real estate companies?",
+      "How will you address the regulatory hurdles for international real estate transactions?",
+      "What partnerships are you pursuing to accelerate market penetration, especially with Oracle? (page 10)",
+      "How will you ensure the legal enforceability of NFT-based property ownership in different jurisdictions?",
+      "What is your plan for managing the 'Blockchain Infrastructure Costs' as you scale? (page 14)",
+      "How will you differentiate from indirect competitors like Magic Brick and Housing.com, which already have large user bases? (page 11)"
+    ]
+  },
+  "evidence": [
+    {
+      "topic": "Company Name",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "One-liner/Mission",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "Team Members and Roles",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "topic": "Team Strengths",
+      "pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "Problem Statement",
+      "pages": [
+        4
+      ]
+    },
+    {
+      "topic": "Solution Statement",
+      "pages": [
+        5
+      ]
+    },
+    {
+      "topic": "Website Mockup (Milio)",
+      "pages": [
+        6
+      ]
+    },
+    {
+      "topic": "Target Market",
+      "pages": [
+        7
+      ]
+    },
+    {
+      "topic": "Traditional Real Estate Transaction Flow",
+      "pages": [
+        8
+      ]
+    },
+    {
+      "topic": "Competitive Advantages",
+      "pages": [
+        9
+      ]
+    },
+    {
+      "topic": "Future Roadmap",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "topic": "Competitors (Direct & Indirect)",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "topic": "Market Size (TAM, SAM, SOM)",
+      "pages": [
+        12
+      ]
+    },
+    {
+      "topic": "Business Model/Revenue Streams",
+      "pages": [
+        13
+      ]
+    },
+    {
+      "topic": "Expenses",
+      "pages": [
+        14
+      ]
+    },
+    {
+      "topic": "Ask (Convertible Note)",
+      "pages": [
+        15
+      ]
+    }
+  ],
+  "meta": {
+    "model_used": "gemini-2.5-flash",
+    "pages_count": 16,
+    "processed_at": "2025-10-24T15:05:07+00:00",
+    "schema_version": "1.0.0"
+  }
+}
