@@ -23,4 +23,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push https://farhananis005:${HF_TOKEN}@huggingface.co/spaces/farhananis005/Founders-Gauntlet-Backend HEAD:main
+           git push --force https://farhananis005:${HF_TOKEN}@huggingface.co/spaces/farhananis005/Founders-Gauntlet-Backend HEAD:main
