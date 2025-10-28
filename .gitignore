@@ -41,7 +41,7 @@ tmp/
 
 # Prisma / DB artifacts
 prisma/.generator/
-prisma/migrations/**/migration_lock.toml
+prisma/migrations/
 prisma/dev.db
 prisma/test.db
 prisma/migrations/*_draft/

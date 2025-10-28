@@ -6,7 +6,7 @@ PITCH_ID = "cmh51jfcn0000lj340ru0mmtq"  # <-- your pitch id
 
 async def main():
     db = Prisma(); await db.connect()
-    p = await db.pitch.find_unique(where={"id": PITCH_ID}, include={"analyses": True})
+    p = await db.deck.find_unique(where={"id": PITCH_ID}, include={"analyses": True})
     if not p or not p.analyses:
         print("No analysis found.")
         await db.disconnect(); return

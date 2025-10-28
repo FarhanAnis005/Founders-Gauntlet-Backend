@@ -21,45 +21,46 @@ model User {
 
 
 // ---- Phase 2 models ----
-enum PitchStatus {
+// --- Keep the old enum in DB, expose as DeckStatus in Prisma ---
+enum DeckStatus {
   uploaded
   processing
   ready
   failed
+
+  @@map("PitchStatus")  // maps to existing DB enum type
 }
 
-model Pitch {
-  id            String       @id @default(cuid())
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+// --- Deck model mapped to old "Pitch" table ---
+model Deck {
+  id           String      @id @default(cuid())
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  ownerClerkId String
+  originalName String
+  uploadPath   String
 
-  // who owns it (Clerk user id; we don't require a User row to exist)
-  ownerClerkId  String
+  // persona REMOVED here (it existed in "Pitch"; we'll drop the column in migration)
 
-  // original upload info
-  originalName  String
-  uploadPath    String
+  status       DeckStatus  @default(uploaded)
+  error        String?
 
-  // selected persona from UI
-  persona       String
-
-  // lifecycle state
-  status        PitchStatus  @default(uploaded)
-  error         String?
-
-  analyses      DeckAnalysis[]
+  analyses     DeckAnalysis[]
 
   @@index([ownerClerkId])
   @@index([status])
+  @@map("Pitch")          // reuse existing table "Pitch"
 }
 
+// --- DeckAnalysis mapped to existing table; FK column name stays pitchId ---
 model DeckAnalysis {
-  id         String   @id @default(cuid())
-  createdAt  DateTime @default(now())
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
 
-  pitchId    String
-  pitch      Pitch    @relation(fields: [pitchId], references: [id], onDelete: Cascade)
+  deckId    String   @map("pitchId")                        // Prisma field name is deckId
+  deck      Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
 
-  // structured AI output
   resultJson Json
+
+  @@map("DeckAnalysis")  // unchanged table name
 }

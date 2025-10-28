@@ -26,10 +26,11 @@ def _trim(s: str, limit: int = 2000) -> str:
 
 
 @celery_app.task(name="app.background.tasks.process_deck", bind=True)
-def process_deck(self, pitch_id: str, pdf_path: str) -> Dict[str, Any]:
+def process_deck(self, deck_id: str, pdf_path: str) -> Dict[str, Any]:
     """
     Celery entrypoint (sync). Runs the async Prisma flow via asyncio.run()
     because prisma-client-py is generated with interface="asyncio".
+    Uses Deck (artifact) and DeckAnalysis. Persona is NOT part of the deck.
     Also applies a Windows/Celery stdio workaround so Prisma engine can spawn.
     """
     async def _run() -> Dict[str, Any]:
@@ -46,22 +47,22 @@ def process_deck(self, pitch_id: str, pdf_path: str) -> Dict[str, Any]:
             sys.stdout, sys.stderr = orig_stdout, orig_stderr
 
         try:
-            # 1) Fetch pitch
-            pitch = await local.pitch.find_unique(where={"id": pitch_id})
-            if not pitch:
-                return {"ok": False, "error": f"Pitch {pitch_id} not found"}
+            # 1) Fetch deck
+            deck = await local.deck.find_unique(where={"id": deck_id})
+            if not deck:
+                return {"ok": False, "error": f"Deck {deck_id} not found"}
 
             # 2) Idempotency: if already ready, skip
-            if getattr(pitch, "status", None) == "ready":
+            if getattr(deck, "status", None) == "ready":
                 return {"ok": True, "skipped": "already_ready"}
 
             # 3) Mark processing
-            await local.pitch.update(
-                where={"id": pitch_id},
+            await local.deck.update(
+                where={"id": deck_id},
                 data={"status": "processing", "error": None},
             )
 
-            # 4) Run analysis (single-shot, Gemini 2.5 Pro from config)
+            # 4) Run analysis (single-shot, Gemini 2.5 Pro/Flash from config)
             result_obj = analyze_pdf_doc_understanding(pdf_path)
 
             # 5) Persist DeckAnalysis:
@@ -69,25 +70,25 @@ def process_deck(self, pitch_id: str, pdf_path: str) -> Dict[str, Any]:
             #    - Wrap JSON with PrismaJson if needed
             await local.deckanalysis.create(
                 data={
-                    "pitch": {"connect": {"id": pitch_id}},
+                    "deck": {"connect": {"id": deck_id}},   
                     "resultJson": as_json(result_obj),
                 }
             )
 
             # 6) Mark ready
-            await local.pitch.update(
-                where={"id": pitch_id},
+            await local.deck.update(
+                where={"id": deck_id},
                 data={"status": "ready"},
             )
 
-            return {"ok": True, "pitch_id": pitch_id}
+            return {"ok": True, "deck_id": deck_id}
 
         except Exception as exc:
             msg = f"{exc.__class__.__name__}: {str(exc)}"
             stack = traceback.format_exc()
             try:
-                await local.pitch.update(
-                    where={"id": pitch_id},
+                await local.deck.update(
+                    where={"id": deck_id},
                     data={"status": "failed", "error": _trim(f"{msg}\n{stack}")},
                 )
             except Exception:
