@@ -1,0 +1,26 @@
+name: Sync to Hugging Face Space
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      # Optional: quick Docker build to catch errors before pushing to the Space
+      - name: Try building the image
+        run: |
+          docker build -t hf-ci-check:latest .
+
+      - name: Push to HF Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git push https://farhananis005:${HF_TOKEN}@huggingface.co/spaces/farhananis005/Founders-Gauntlet-Backend HEAD:main
