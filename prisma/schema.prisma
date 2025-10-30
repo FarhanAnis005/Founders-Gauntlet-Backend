@@ -39,12 +39,8 @@ model Deck {
   ownerClerkId String
   originalName String
   uploadPath   String
-
-  // persona REMOVED here (it existed in "Pitch"; we'll drop the column in migration)
-
   status       DeckStatus  @default(uploaded)
   error        String?
-
   analyses     DeckAnalysis[]
 
   @@index([ownerClerkId])

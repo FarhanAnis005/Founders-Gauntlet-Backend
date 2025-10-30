@@ -17,3 +17,7 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") 
+
+LIVEKIT_URL = os.getenv("LIVEKIT_URL", "")  # e.g., wss://yourdomain.livekit.cloud
+LIVEKIT_API_KEY = os.getenv("LIVEKIT_API_KEY", "")
+LIVEKIT_API_SECRET = os.getenv("LIVEKIT_API_SECRET", "")

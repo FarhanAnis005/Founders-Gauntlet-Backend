@@ -51,11 +51,11 @@ You are analyzing a startup pitch deck PDF. Return STRICT JSON and nothing else.
 SCHEMA (all fields REQUIRED; use empty values [] or "" where unknown):
 {
   "one_liner": string,
-  "themes": [string],           // 3–6 key themes
-  "strengths": [string],        // 3–7, concise, include metrics if present (e.g., GM%, growth %)
-  "risks": [string],            // 3–7, concise, include metrics if present
+  "themes": [string],           // 3-6 key themes
+  "strengths": [string],        // 3-7, concise, include metrics if present (e.g., GM%, growth %)
+  "risks": [string],            // 3-7, concise, include metrics if present
   "questions_by_shark": {
-    "kevin":   [string],        // 5–10 questions focused on unit economics, margins, CAC/LTV, valuation, deal terms
+    "kevin":   [string],        // 5-10 questions focused on unit economics, margins, CAC/LTV, valuation, deal terms
     "mark":    [string],        // tech defensibility, scalability, product strategy, data moats
     "lori":    [string],        // consumer appeal, packaging, channels (retail/QVC), IP
     "barbara": [string],        // brand, storytelling, founder grit, scrappiness, sales tactics
